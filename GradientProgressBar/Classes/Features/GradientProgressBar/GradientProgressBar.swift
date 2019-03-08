@@ -13,14 +13,14 @@ open class GradientProgressBar: UIProgressView {
     // MARK: - Public properties
 
     /// Gradient colors for the progress view.
-    public var gradientColorList = UIColor.defaultGradientColorList {
+    open var gradientColorList = UIColor.defaultGradientColorList {
         didSet {
             gradientLayer.colors = gradientColorList.cgColors
         }
     }
 
     /// Animation duration for calls to `setProgress(x, animated: true)`.
-    public var animationDuration: TimeInterval {
+    open var animationDuration: TimeInterval {
         get {
             return viewModel.animationDuration
         }
@@ -30,7 +30,7 @@ open class GradientProgressBar: UIProgressView {
     }
 
     /// Animation timing function for calls to `setProgress(x, animated: true)`.
-    public var timingFunction: CAMediaTimingFunction {
+    open var timingFunction: CAMediaTimingFunction {
         get {
             return viewModel.timingFunction
         }
@@ -39,7 +39,7 @@ open class GradientProgressBar: UIProgressView {
         }
     }
 
-    public override var progress: Float {
+    open override var progress: Float {
         didSet {
             viewModel.setProgress(progress)
         }
@@ -77,13 +77,13 @@ open class GradientProgressBar: UIProgressView {
 
     // MARK: - Constructor
 
-    public override init(frame: CGRect) {
+    open override init(frame: CGRect) {
         super.init(frame: frame)
 
         commonInit()
     }
 
-    public required init?(coder aDecoder: NSCoder) {
+    open required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 
         commonInit()
@@ -91,7 +91,7 @@ open class GradientProgressBar: UIProgressView {
 
     // MARK: - Public methods
 
-    public override func layoutSubviews() {
+    open override func layoutSubviews() {
         super.layoutSubviews()
 
         // Unfortunately `CALayer` is not affected by autolayout, so any change in the size of the view will not change the gradient layer.
@@ -102,7 +102,7 @@ open class GradientProgressBar: UIProgressView {
         viewModel.bounds = bounds
     }
 
-    public override func setProgress(_ progress: Float, animated: Bool) {
+    open override func setProgress(_ progress: Float, animated: Bool) {
         super.setProgress(progress, animated: animated)
 
         viewModel.setProgress(progress, animated: animated)
