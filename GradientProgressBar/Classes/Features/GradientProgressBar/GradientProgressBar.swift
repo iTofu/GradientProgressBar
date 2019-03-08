@@ -9,7 +9,7 @@
 import UIKit
 
 /// A customizable gradient progress bar (`UIProgressView`).
-public class GradientProgressBar: UIProgressView {
+open class GradientProgressBar: UIProgressView {
     // MARK: - Public properties
 
     /// Gradient colors for the progress view.
